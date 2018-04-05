@@ -1,3 +1,5 @@
+require 'active_support'
+require 'active_support/core_ext'
 
 module Ruboty
   module Router
@@ -6,5 +8,5 @@ module Ruboty
 end
 
 Dir[File.expand_path('router', __dir__) << '/**/*.rb'].each { |file| require file }
-Dir[File.expand_path('handlers', __dir__) << '/**/*.rb'].each { |file| require file }
+Dir[File.expand_path('routers', __dir__) << '/**/*.rb'].each { |file| require file }
 
