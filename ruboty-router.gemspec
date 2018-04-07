@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['zeero']
   spec.email         = ['zeero26@gmail.com']
   spec.summary       = 'Routing with Ruboty.'
-  spec.description   = 'Enhance Routing Functionality to Ruboty.'
+  spec.description   = 'Enable Routing function to Ruboty.'
   spec.homepage      = ''
   spec.license       = 'MIT'
 
