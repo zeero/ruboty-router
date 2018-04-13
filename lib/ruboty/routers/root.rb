@@ -1,7 +1,7 @@
 module Ruboty
   module Routers
     class Root < Base
-      on('/', name: 'root', description: 'Routing for /')
+      route('/', name: 'root', description: 'Routing for /')
 
       def root(req, res)
         # server response

@@ -16,7 +16,7 @@ module Ruboty
   end
 end
 
-require_relative 'robot'
+require_relative 'robot.patch'
 Dir[File.expand_path('router', __dir__) << '/**/*.rb'].each { |file| require file }
 Dir[File.expand_path('routers', __dir__) << '/**/*.rb'].each { |file| require file }
 

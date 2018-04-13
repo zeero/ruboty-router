@@ -8,7 +8,7 @@ module Ruboty
           Ruboty::Router.routers << child
         end
 
-        def on(path, options = {})
+        def route(path, options = {})
           actions << Router::Action.new(path, options)
         end
 

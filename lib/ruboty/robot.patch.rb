@@ -1,9 +1,15 @@
 module Ruboty
   class Robot
-    alias original_handle handle
+    alias original_adapt adapt
 
-    def handle
-      original_handle
+    private
+
+    def adapt
+      routing
+      original_adapt
+    end
+
+    def routing
       server = WEBrick::HTTPServer.new(
         DocumentRoot: '.',
         BindAddress: '127.0.0.1',
@@ -13,7 +19,7 @@ module Ruboty
       Ruboty::Router.routers.each { |router| router.new(self).call(server) }
       trap('INT') { server.shutdown }
       server.start
-      server
     end
   end
 end
+
