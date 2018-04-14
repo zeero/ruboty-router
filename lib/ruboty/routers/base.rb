@@ -27,9 +27,9 @@ module Ruboty
         validate!
       end
 
-      def call(server, options = {})
-        self.class.actions.each do |action|
-          action.call(self, server, options)
+      def call(options = {})
+        self.class.actions.inject({}) do |routes, action|
+          routes.merge!(action.call(self, options))
         end
       end
     end

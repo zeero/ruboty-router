@@ -1,10 +1,13 @@
 require 'active_support'
 require 'active_support/core_ext'
 require 'mem'
+require 'rack'
 require 'webrick'
 
 module Ruboty
   module Router
+    RUBOTY_ROUTER_PORT = ENV['RUBOTY_ROUTER_PORT'] || 9292
+
     class << self
       include Mem
 

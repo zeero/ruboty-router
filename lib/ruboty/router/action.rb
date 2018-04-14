@@ -8,10 +8,14 @@ module Ruboty
         @options = options
       end
 
-      def call(router, server, _options = {})
-        server.mount_proc path do |req, res|
+      def call(router, _options = {})
+        proc = lambda do |env|
+          req = Rack::Request.new(env)
+          res = Rack::Response.new
           router.send(name, req, res)
+          res.to_a
         end
+        { path => proc }
       end
 
       def name

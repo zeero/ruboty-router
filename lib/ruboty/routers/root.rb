@@ -5,7 +5,7 @@ module Ruboty
 
       def root(req, res)
         # server response
-        res.body = 'Ruboty::Router works!'
+        res.write 'Ruboty::Router works!'
 
         # example for reaction in chat
         # robot.say(body: 'something to say', to: '#general')

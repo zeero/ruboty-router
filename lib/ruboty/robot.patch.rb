@@ -5,20 +5,12 @@ module Ruboty
     private
 
     def adapt
-      routing
+      server
       original_adapt
     end
 
-    def routing
-      server = WEBrick::HTTPServer.new(
-        DocumentRoot: '.',
-        BindAddress: '127.0.0.1',
-        Port: ENV['RUBOTY_ROUTER_PORT'] || 8888,
-        ServerType: Thread
-      )
-      Ruboty::Router.routers.each { |router| router.new(self).call(server) }
-      trap('INT') { server.shutdown }
-      server.start
+    def server
+      Ruboty::Router::Server.start(self)
     end
   end
 end
