@@ -22,7 +22,10 @@ And then execute:
 
 ## Usage
 
-Sample definition is below:
+WEBrick will start with port 9292 by default, when starting Ruboty.
+
+You can define routings by Ruboty::Routers class.
+Sample is below:
 
 ```ruby
 module Ruboty
@@ -54,7 +57,7 @@ end
 
 |Name|Description|
 |:--|:--|
-|RUBOTY_ROUTER_PORT|HTTP listen port|
+|RUBOTY_ROUTER_PORT|HTTP listen port (default: 9292)|
 
 ## Contributing
 
