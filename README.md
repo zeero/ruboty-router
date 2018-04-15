@@ -1,8 +1,12 @@
-# Ruboty::Router
+[![Build Status](https://travis-ci.org/zeero/ruboty-url.svg?branch=master)](https://travis-ci.org/zeero/ruboty-url)
+[![Gem Version](https://badge.fury.io/rb/ruboty-url.svg)](https://badge.fury.io/rb/ruboty-url)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE.txt)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ruboty/router`. To experiment with that code, run `bin/console` for an interactive prompt.
+# Ruboty::Ruboty::Router
 
-TODO: Delete this and the text above, and describe your gem
+A Ruboty Handler + Actions to enable routing function to Ruboty.
+
+[Ruboty](https://github.com/r7kamura/ruboty) is Chat bot framework. Ruby + Bot = Ruboty
 
 ## Installation
 
@@ -16,24 +20,47 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install ruboty-router
-
 ## Usage
 
-TODO: Write usage instructions here
+Sample definition is below:
 
-## Development
+```ruby
+module Ruboty
+  module Routers
+    class Sample < Base
+      route('/sample', name: 'sample', description: 'sample router.')
+      route('/sample/child', name: 'child', description: 'sample router.')
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+      def sample(req, res)
+        res.write 'This is sample.'
+        robot.say(body: 'something to say', to: '#general')
+      end
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+      def child(req, res)
+        res.write 'This is sample for multiple definition.'
+        robot.say(body: 'something to say for /sample/child', to: '#general')
+      end
+    end
+  end
+end
+```
+
+* `route(<path>, name: <method_name>, description: <description>)` add routing
+* `def sample(req, res)`
+  * Routing method definition
+  * Method receive [Rack::Request](http://www.rubydoc.info/gems/rack/Rack/Request) and [Rack::Response](http://www.rubydoc.info/gems/rack/Rack/Response)
+
+## ENV
+
+|Name|Description|
+|:--|:--|
+|RUBOTY_ROUTER_PORT|HTTP listen port|
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/zeero/ruboty-router.
+1. Fork it ( https://github.com/zeero/ruboty-router/fork )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
 
-## License
-
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
