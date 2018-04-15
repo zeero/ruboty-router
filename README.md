@@ -2,7 +2,7 @@
 [![Gem Version](https://badge.fury.io/rb/ruboty-router.svg)](https://badge.fury.io/rb/ruboty-router)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE.txt)
 
-# Ruboty::Ruboty::Router
+# Ruboty::Router
 
 A Ruboty Handler + Actions to enable routing function to Ruboty.
 
