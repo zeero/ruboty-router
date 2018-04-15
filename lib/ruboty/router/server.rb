@@ -11,7 +11,7 @@ module Ruboty
           Thread.new do
             Rack::Server.start(
               app: app(robot),
-              Port: Ruboty::Router::RUBOTY_ROUTER_PORT,
+              Port: Ruboty::Router::RUBOTY_ROUTER_PORT
             )
           end
         end
