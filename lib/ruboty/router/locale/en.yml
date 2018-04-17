@@ -1,0 +1,4 @@
+en:
+  warnings:
+    invalid_route: "Ruboty::Router: Failed to define route for '%{path}'. Path must start with '/'."
+

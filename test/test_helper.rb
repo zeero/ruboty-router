@@ -14,6 +14,7 @@ module Ruboty
     class Sample < Base
       route('/sample', name: 'sample', description: 'sample router for unit test.')
       route('/sample/child', name: 'child', description: 'sample router for unit test.')
+      route('failed', name: 'failed', description: 'sample router for unit test.')
 
       def sample(_req, res)
         res.write 'Sample!'
@@ -23,6 +24,11 @@ module Ruboty
       def child(_req, res)
         res.write 'Child!'
         robot.say(body: 'something to say for child')
+      end
+
+      def failed(_req, res)
+        res.write 'Failed!'
+        robot.say(body: 'something to say for failed')
       end
     end
   end

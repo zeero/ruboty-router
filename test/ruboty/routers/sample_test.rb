@@ -6,6 +6,11 @@ describe Ruboty::Routers::Sample do
   let(:robot) { Ruboty::Robot.new }
 
   before do
+    $stdout = StringIO.new
+  end
+
+  after do
+    $stdout = STDOUT
   end
 
   def app
@@ -31,6 +36,15 @@ describe Ruboty::Routers::Sample do
       get '/sample/child'
       last_response.must_be :ok?
       last_response.body.must_equal 'Child!'
+    end
+  end
+
+  describe 'failed' do
+    it 'should display warning message' do
+      get 'failed'
+      last_response.body.wont_equal 'Failed!'
+      output = $stdout.string
+      output.must_equal I18n.t('warnings.invalid_route', path: 'failed') + "\n"
     end
   end
 end

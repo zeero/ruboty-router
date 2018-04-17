@@ -9,6 +9,10 @@ module Ruboty
       end
 
       def call(router, _options = {})
+        unless path.start_with? '/'
+          puts I18n.t('warnings.invalid_route', path: path)
+          return {}
+        end
         proc = lambda do |env|
           req = Rack::Request.new(env)
           res = Rack::Response.new

@@ -48,7 +48,9 @@ module Ruboty
 end
 ```
 
-* `route(<path>, name: <method_name>, description: <description>)` add routing
+* `route(<path>, name: <method_name>, description: <description>)`
+  * add routing
+  * *<path> must start with '/'*
 * `def sample(req, res)`
   * Routing method definition
   * Method receive [Rack::Request](http://www.rubydoc.info/gems/rack/Rack/Request) and [Rack::Response](http://www.rubydoc.info/gems/rack/Rack/Response)
