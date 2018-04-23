@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/zeero/ruboty-router.svg?branch=master)](https://travis-ci.org/zeero/ruboty-router)
 [![Gem Version](https://badge.fury.io/rb/ruboty-router.svg)](https://badge.fury.io/rb/ruboty-router)
+[![Code Climate](https://codeclimate.com/github/zeero/ruboty-router/badges/gpa.svg)](https://codeclimate.com/github/zeero/ruboty-router)
+[![Test Coverage](https://codeclimate.com/github/zeero/ruboty-router/badges/coverage.svg)](https://codeclimate.com/github/zeero/ruboty-router/coverage)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE.txt)
 
 # Ruboty::Router
